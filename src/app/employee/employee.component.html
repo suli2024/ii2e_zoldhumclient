@@ -1,0 +1,52 @@
+<p>employee works!</p>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Hozzáadás
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+
+          <form [formGroup]="employeeForm" (submit)="saveEmployee()">
+            <div class="form-group mb-3">
+                <span class="form-group-text">Név</span>
+                <input type="text" formControlName="name"
+                class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <span class="form-group-text">Település</span>
+                <input type="text" formControlName="city"
+                class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <span class="form-group-text">Fizetés</span>
+                <input type="text" formControlName="salary"
+                class="form-control">
+            </div>
+
+            <button type="submit">Mentés</button>
+
+          </form>
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
