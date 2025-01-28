@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule 
 } from '@angular/forms';
 import { AuthapiService } from '../shared/authapi.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent {
 
   constructor(
     private authapi: AuthapiService,
-    private builder: FormBuilder
+    private builder: FormBuilder,
+    private app : AppComponent
   ) {}
 
   ngOnInit() {
@@ -36,6 +38,7 @@ export class LoginComponent {
       next: (data: any) => {
         console.log(data)
         localStorage.setItem('token', data.token)
+        this.app.loggedIn = true
         this.loginForm.reset()
       },
       error: (err) => {

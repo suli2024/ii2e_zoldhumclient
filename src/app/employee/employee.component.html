@@ -50,3 +50,24 @@
       </div>
     </div>
   </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Név</th>
+      <th>Település</th>
+      <th>Fizetés</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(emp of empList; track emp.id) {
+      <tr>
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.city}}</td>
+        <td>{{emp.salary}}</td>
+      </tr>
+    }
+  </tbody>
+</table>

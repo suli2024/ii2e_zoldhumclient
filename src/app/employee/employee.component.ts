@@ -16,6 +16,7 @@ import { EmpapiService } from '../shared/empapi.service';
 })
 export class EmployeeComponent {
   employeeForm !: FormGroup
+  empList !: any[]
 
   constructor(
     private builder: FormBuilder,
@@ -28,13 +29,28 @@ export class EmployeeComponent {
       city: new FormControl(''),
       salary: new FormControl(''),
     })
+    this.getEmployees();
   }
+
+  getEmployees() {
+    this.empapi.getEmployees().subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.empList = data;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
 
   saveEmployee(){
     // console.log(this.employeeForm.value)
     this.empapi.addEmployee(this.employeeForm.value).subscribe({
       next: (data) => {
         console.log(data)
+        this.getEmployees();
       },
       error: (err) => {
         console.log(err)

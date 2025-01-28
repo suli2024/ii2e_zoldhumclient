@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { AuthapiService } from './shared/authapi.service';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,12 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'zoldhumclient';
+  loggedIn = false;
+
+  constructor(private authapi: AuthapiService) {}
+
+  ngOnInit() {
+    this.loggedIn = this.authapi.isLoggedIn()
+  }
+
 }
