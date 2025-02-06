@@ -20,7 +20,7 @@ export class AuthapiService {
 
   logout() {
     const url = 'http://localhost:8000/api/logout';
-    return this.http.post(url, {headers: this.makeHeader()});
+    return this.http.post(url, null, {headers: this.makeHeader()});
   }
 
   isLoggedIn() {
